@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dictionary</title>
+</head>
+<body>
+    <h1>Web Dictionary</h1>
+    <form method="POST">
+        <input type="text" name="word" placeholder="Enter a word" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if definitions %}
+        <h2>Definitions:</h2>
+        <ul>
+            {% for definition in definitions %}
+                <li>{{ definition }}</li>
+            {% endfor %}
+        </ul>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
